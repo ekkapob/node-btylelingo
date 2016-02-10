@@ -11,9 +11,8 @@ server.connection({
 
 server.ext('onPreResponse', (request, reply) => {
   if(request.response.isBoom){
-    // reply.view('404');
     let statusCode = request.response.output.statusCode;
-    console.log(statusCode);
+    console.log(`failed: ${statusCode}`);
   }
   reply.continue();
 });
@@ -29,12 +28,13 @@ server.register(require('vision'), (err) => {
     engines: {
       html: require('handlebars')
     },
-    relativeTo: __dirname,
+    relativeTo: __dirname + '/public',
     path: './views',
     layoutPath: './views/layout',
     layout: 'default',
     partialsPath: './views/partials',
-    helpersPath: './views/helpers'
+    helpersPath: './views/helpers',
+    isCached: false
   });
 });
 
@@ -78,31 +78,44 @@ const routes = [
   }
 ]
 
+// server.route({
+//   method: 'GET',
+//   path: '/hello',
+//   handler: (request, reply) => {
+//     reply.file('./public/hello.html');
+//   }
+// });
+
 server.route({
   method: 'GET',
-  path: '/hello',
+  path: '/',
   handler: (request, reply) => {
-    reply.file('./public/hello.html');
+    // reply(`Hello ${encodeURIComponent(request.params.name)} !`);
+    reply.view('index', { title: 'this is title'});
   }
 });
 
 server.route({
   method: 'GET',
-  path: '/{name}',
-  handler: (request, reply) => {
-    // reply(`Hello ${encodeURIComponent(request.params.name)} !`);
-    reply.view(request.params.name, { title: 'this is title'});
+  path: '/{filenamem*}',
+  handler: {
+    directory: {
+      path: __dirname + '/public',
+      listing: false,
+      index: false
+    }
   }
 });
 
-server.route({
-  method: 'GET',
-  path: '/{param*}',
-  handler: (request, reply) => {
-    // reply(`Hello ${encodeURIComponent(request.params.name)} !`);
-    reply.view('404');
-  }
-});
+// server.route({
+//   method: 'GET',
+//   path: '/{param*}',
+//   handler: (request, reply) => {
+//     // reply(`Hello ${encodeURIComponent(request.params.name)} !`);
+//     reply.view('404');
+//   }
+// });
+
 // server.route({
 //   method: 'GET',
 //   path: '/hello',
