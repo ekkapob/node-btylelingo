@@ -1,0 +1,19 @@
+{
+  "name": "Bytelingo",
+  "description": "",
+  "main": "index.js",
+  "license": "MIT",
+  "homepage": "https://github.com/ekkapob/node-btylelingo",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.0"
+  }
+}

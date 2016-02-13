@@ -1,9 +1,10 @@
-'use strict'
+'use strict';
 
 const Hapi = require('hapi');
 const server = new Hapi.Server();
 const Good = require('good');
 const Hoek = require('hoek');
+
 server.connection({
   host: 'localhost',
   port: 8080
@@ -13,12 +14,24 @@ server.ext('onPreResponse', (request, reply) => {
   if(request.response.isBoom){
     let statusCode = request.response.output.statusCode;
     console.log(`failed: ${statusCode}`);
+    return reply.view('404');
   }
   reply.continue();
 });
 
 server.register(require('inert'), (err) => {
   if (err) { throw err; }
+  server.route({
+    method: 'GET',
+    path: '/{filename*}',
+    handler: {
+      directory: {
+        path: __dirname + '/public',
+        listing: false,
+        index: false
+      }
+    }
+  });
 });
 
 server.register(require('vision'), (err) => {
@@ -36,103 +49,17 @@ server.register(require('vision'), (err) => {
     helpersPath: './views/helpers',
     isCached: false
   });
-});
 
-server.register({
-  register: Good,
-  options: {
-    reporters: [{
-      reporter: require('good-console'),
-      events: {
-        response: '*',
-        log: '*'
-      }
-    }]
-  }
-}, (err) => {
-  if (err) { throw err; }
-});
-
-const routes = [
-  // {
-  //   method: 'GET',
-  //   path: '/hello',
-  //   handler: (request, reply) => {
-  //     reply.file('./public/hello.html');
-  //   }
-  // },
-  {
+  server.route({
     method: 'GET',
     path: '/',
     handler: (request, reply) => {
+      // reply(`Hello ${encodeURIComponent(request.params.name)} !`);
       reply.view('index', { title: 'this is title'});
     }
-  },
-  {
-    method: 'GET',
-    path: '/{name}',
-    handler: (request, reply) => {
-      // reply(`Hello ${encodeURIComponent(request.params.name)} !`);
-      reply.view(request.params.name, { title: 'this is title'});
-    }
-  }
-]
+  });
 
-// server.route({
-//   method: 'GET',
-//   path: '/hello',
-//   handler: (request, reply) => {
-//     reply.file('./public/hello.html');
-//   }
-// });
-
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: (request, reply) => {
-    // reply(`Hello ${encodeURIComponent(request.params.name)} !`);
-    reply.view('index', { title: 'this is title'});
-  }
 });
-
-server.route({
-  method: 'GET',
-  path: '/{filenamem*}',
-  handler: {
-    directory: {
-      path: __dirname + '/public',
-      listing: false,
-      index: false
-    }
-  }
-});
-
-// server.route({
-//   method: 'GET',
-//   path: '/{param*}',
-//   handler: (request, reply) => {
-//     // reply(`Hello ${encodeURIComponent(request.params.name)} !`);
-//     reply.view('404');
-//   }
-// });
-
-// server.route({
-//   method: 'GET',
-//   path: '/hello',
-//   handler: (request, reply) => {
-//     reply.file('./public/hello.html');
-//   }
-// });
-//
-// server.route({
-//   method: 'GET',
-//   path: '/{name}',
-//   handler: (request, reply) => {
-//     reply(`Hello ${encodeURIComponent(request.params.name)} !`);
-//   }
-// });
-
-// server.route(routes);
 
 server.start((err) => {
   if (err) { throw err; }
