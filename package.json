@@ -20,7 +20,9 @@
   "devDependencies": {
     "browser-sync": "^2.11.1",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
     "gulp-nodemon": "^2.0.6",
-    "gulp-sass": "^2.2.0"
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0"
   }
 }

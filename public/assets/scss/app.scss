@@ -1,0 +1,21 @@
+@import 'colors';
+
+body {
+  font-size: 62.5%;
+  font-family: 'Sukhumvit Set', 'Helvetica Neue', 'Helvetica','Arial', sans-serif
+}
+
+.container {
+  display: flex;
+}
+
+a {
+  &:link, &:visited, &:active {
+    text-decoration: none;
+    color: $main_black;
+  }
+  &:hover {
+    text-decoration: none; 
+    color: $button_hover_grey
+  }
+}
