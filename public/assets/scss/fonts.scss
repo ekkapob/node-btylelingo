@@ -7,3 +7,15 @@
   font-family:'Sukhumvit Set Medium';
   src: url("../fonts/sukhumvitset-medium-webfont.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: 'quicksandbold';
+  src: url('../fonts/quicksand-bold-webfont.eot');
+  src: url('../fonts/quicksand-bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/quicksand-bold-webfont.woff2') format('woff2'),
+        url('../fonts/quicksand-bold-webfont.woff') format('woff'),
+        url('../fonts/quicksand-bold-webfont.ttf') format('truetype'),
+        url('../fonts/quicksand-bold-webfont.svg#quicksandbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

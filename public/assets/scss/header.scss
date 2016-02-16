@@ -1,19 +1,59 @@
+@import 'colors';
+
 #header {
   font-size: 1rem;
   &.container {
     display: flex; 
     align-items: center;
     margin-top: 2rem;
+    margin-bottom: 2rem;
   }
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    margin-left: 5rem;
     li {
       display: inline;
-      font-size: 2rem;
+      img {
+        height: 38px;
+      }
+    }
+  }
+  #nav {
+    flex-grow: 1;
+    margin-left: 5rem;
+    li {
+      font-size: 1.8rem;
       margin-right: 5rem;
+    }
+  }
+}
+
+#hero-image {
+  background-image: url("/assets/images/hero_img.png");
+  height: 560px;
+  width: 100%;
+  background-size: cover;
+  .hero-text {
+    color: white;
+    font-size: 5rem;
+    font-family: 'quicksandbold';
+    text-align: center;
+    text-shadow: 0 2px 1px $main-black;
+    transform: translateY(10rem);
+    .thai {
+      font-size: 3.2rem;
+    }
+    .btn {
+      color: white;
+      font-size: 2.3rem;
+    }
+    .btn-default {
+      background: none;
+      border-radius: 0;
+      border-width: 3px;
+      border-color: #4A96FF;
+      padding: 1rem 6rem;
     }
   }
 }

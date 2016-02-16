@@ -2,7 +2,14 @@
 
 body {
   font-size: 62.5%;
-  font-family: 'Sukhumvit Set', 'Helvetica Neue', 'Helvetica','Arial', sans-serif
+  font-family: 'Helvetica Neue', 'Helvetica','Arial', sans-serif;
+}
+
+.thai {
+  font-family: 'Sukhumvit Set';
+  &.medium {
+    font-family: 'Sukhumvit Set Medium';
+  }
 }
 
 .container {
@@ -12,10 +19,10 @@ body {
 a {
   &:link, &:visited, &:active {
     text-decoration: none;
-    color: $main_black;
+    color: $main-black;
   }
   &:hover {
     text-decoration: none; 
-    color: $button_hover_grey
+    color: $button-hover-grey
   }
 }

@@ -31,7 +31,7 @@ gulp.task('server', function(){
     script: 'server.js',
     ext: 'js public/views/partials/*.html'
   }).on('restart', function(){
-    setTimeout(browserSync.reload, 500);
+    setTimeout(browserSync.reload, 600);
   });
 
   setTimeout(function(){
