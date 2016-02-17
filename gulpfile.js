@@ -16,7 +16,8 @@ gulp.task('sass', function(){
 
 gulp.task('serve', function(){
   browserSync.init({
-    proxy: 'localhost:8080'
+    proxy: 'localhost:8080',
+    reloadDelay: 1000
   });
 });
 
