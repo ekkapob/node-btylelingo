@@ -3,6 +3,7 @@
 @import 'colors';
 @import 'header';
 @import 'index';
+@import 'course';
 @import 'footer';
 
 body {
@@ -39,5 +40,13 @@ h2 {
   &.title {
     margin-top: 5rem;
     margin-bottom: 5rem;
+  }
+}
+
+.inverse-title {
+  margin-top: -6rem;
+  background-color: $grey;
+  .row.title {
+    color: white;
   }
 }
