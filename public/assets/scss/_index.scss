@@ -1,9 +1,7 @@
-@import 'colors';
-
 #what-in-it {
-  @media (min-width: $screen-sm-min) {
+  @media (max-width: $screen-xs-max) {
     img {
-
+      margin: 0 auto;
     }
   }
   .content {
@@ -15,6 +13,10 @@
     p {
       color: $content-black;
       font-size: 2rem;
+      strong {
+        font-size: 2.2rem;
+        color: $main-black;
+      }
     }
   }
   .row {
