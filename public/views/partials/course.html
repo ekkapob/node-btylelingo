@@ -1,0 +1,31 @@
+{{#each courses}}
+  <div class="col-sm-6 col-md-4 course text-center">
+    <div class="badge" href="#">
+      <img src="assets/images/courses/{{logo}}" alt="{{title.eng}}">
+    </div>
+    <div class="course-card">
+      <div class="mask"></div>
+      <div class="info-card">
+        <div class="title">
+          <p class="thai">{{title.thai}}</p>
+          <p class="eng">{{title.eng}}</p>
+        </div>
+        <p class="thai info">{{info}}</p>
+        <div class="more">
+          {{#if draft}}
+            <a class="btn btn-default coming-soon">COMING SOON!</a>
+          {{else}}
+            <a class="btn btn-default" href="{{url}}">GO!</a>
+          {{/if}}
+        </div>
+      </div>
+      <div class="footer">
+        <ul>
+          {{#each tech}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+{{/each}}

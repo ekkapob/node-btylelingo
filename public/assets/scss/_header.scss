@@ -1,4 +1,13 @@
 #header {
+  .logo {
+    font-size: 3rem;
+    color: black;
+    a {
+      &:hover {
+        color: black;
+      }
+    }
+  }
   font-size: 1rem;
   &.container {
     display: flex; 
@@ -28,7 +37,7 @@
 }
 
 #hero-image {
-  background-image: url("/assets/images/hero_img.png");
+  background-image: url("/assets/images/hero_img.jpg");
   height: 560px;
   width: 100%;
   background-size: cover;

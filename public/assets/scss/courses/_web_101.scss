@@ -1,0 +1,185 @@
+#web-101{
+  a {
+    text-decoration: underline;
+  }
+  .top-img {
+    background-image: url("/assets/images/courses/web_101/top.jpg");
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  @media (min-width: 1100px) {
+    .top-img {
+      background-position-y: -15rem;
+    }
+  }
+  .img-responsive {
+    width: 80px;
+    margin: 0 auto;
+  }
+  .title-container {
+    text-align: center;
+    background-color: $light-purple;
+    margin-bottom: 2rem;
+    .title {
+      display: inline-block;
+      margin: 0 auto;
+    }
+    .text {
+      font-size: 3rem;
+      padding: 1rem 0 5rem;
+    }
+    .header {
+      text-align: center;
+      font-size: 5rem;
+      font-family: 'quicksandbold';
+      color: white;
+      margin-top: 5rem;
+      color: $purple;
+    }
+  }
+  section {
+    margin: 5rem 0;
+    .col-md-2 {
+      img {
+        margin-bottom: 2rem;
+      }
+    }
+    .title {
+      font-size: 1.8rem;
+      color: $hilight-purple;
+    }
+    hr {
+      margin-top: 1rem;
+      border-color: $hilight-purple;
+      border-top-width: 2px;
+    }
+    .section-title {
+      margin-bottom: 2rem;
+    }
+  }
+  .apply {
+    text-align: center;
+    .btn-default {
+      background-color: $purple;
+      padding: 1.5rem 10rem;
+      font-size: 2rem;
+      box-shadow: 0 3px 0px $hilight-purple;
+      border: 0;
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .materials {
+    ul {
+      display: flex;
+      list-style: none;
+      align-items: flex-end;
+      padding: 0;
+      li {
+        text-align: center;
+        p {
+          margin: 0;
+        }
+        img {
+          margin-top: 1rem;
+        }
+      }
+      .plus-img {
+        padding: 0 2rem;
+        height: 8rem;
+      }
+    }
+  }
+  .instructor {
+    margin-bottom: 3rem;
+    .instructor-info {
+      display: flex;
+      position: relative;
+      .profile {
+        font-size: 1.3rem;
+        margin-left: 2rem;
+        position: absolute;
+        bottom: 1.5rem;
+        .exp {
+          margin-top: 0.5rem;
+        }
+        ul {
+          display: inline;
+          list-style: none;
+          padding: 0;
+          color: $content-black;
+          li {
+            display: inline;
+            padding-right: 0.7rem;
+            border-right: 1px solid $light-grey;
+            padding-left: 0.2rem;
+            &:last-child {
+              border: none;
+            }
+          }
+        }
+        a {
+          text-decoration: none;
+        }
+        p {
+          margin-bottom: 0;
+          color: $content-black;
+          &.role {
+            margin-top: 1rem;
+          }
+        }
+        img {
+          height: 2.2rem;
+          margin-left: 1rem;
+          margin-top: -0.5rem;
+          margin-left: 0.2rem;
+        }
+        .name {
+          font-size: 1.7rem;
+          margin-bottom: 0.6rem;
+          color: $main-black;
+          margin-right: 1rem;
+        }
+      }
+      .instructor-photo {
+        height: 12rem;
+      }
+    }
+  }
+  .row {
+    &.tech-covered {
+      .contents {
+        font-size: 1.6rem;
+        line-height: 2.7rem;
+        ul {
+          display: inline;
+          padding-left: 1rem;
+          li {
+            font-size: 1.4rem;
+            display: inline;
+            background-color: $hilight-purple;
+            padding: 0.3rem 1rem;
+            border-radius: 5px;
+            margin: 0 0.1rem;
+            color: white;
+          }
+        }
+      }
+    }
+    .contents {
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+      color: $main-black;
+      .notes {
+        margin-top: 3rem;
+        margin-bottom: 0;
+        font-style: italic;
+      }
+      .content {
+        color: $content-black;
+      }
+    }
+  }
+
+}

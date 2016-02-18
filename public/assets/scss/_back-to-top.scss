@@ -1,0 +1,21 @@
+.back-to-top {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem 0;
+  .arrow-container {
+    display: inline;
+    background-color: $hilight-purple;
+    padding: 4px 5px;
+    border-radius: 50%;
+  }
+  .glyphicon {
+    left: 1px;
+    color: #FFF;
+  }
+  p {
+    color: $dark-purple;
+    font-family: 'quicksandbold';
+    margin-top: 0.5rem;
+    font-size: 1.6rem;
+  }
+}

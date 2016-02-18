@@ -1,9 +1,10 @@
 'use strict';
 
-const Hapi = require('hapi');
-const server = new Hapi.Server();
-const Good = require('good');
-const Hoek = require('hoek');
+const Hapi      = require('hapi');
+const server    = new Hapi.Server();
+const Good      = require('good');
+const Hoek      = require('hoek');
+const Data   = require('./data/courses');
 
 server.connection({
   host: 'localhost',
@@ -55,7 +56,16 @@ server.register(require('vision'), (err) => {
     path: '/',
     handler: (request, reply) => {
       // reply(`Hello ${encodeURIComponent(request.params.name)} !`);
-      reply.view('index', { title: 'this is title'});
+      reply.view('index', { courses: Data.courses });
+    }
+  });
+
+
+  server.route({
+    method: 'GET',
+    path: '/courses/website-development-101',
+    handler: (request, reply) => {
+      reply.view('courses/web_101');
     }
   });
 

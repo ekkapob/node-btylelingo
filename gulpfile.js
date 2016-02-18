@@ -4,14 +4,15 @@ var sass        = require('gulp-sass');
 var nodemon     = require('gulp-nodemon');
 var concat      = require('gulp-concat');
 var sourcemaps  = require('gulp-sourcemaps');
+var plumber     = require('gulp-plumber');
 
 gulp.task('sass', function(){
   return gulp.src('public/assets/scss/app.scss')
-          .pipe(sass({
-            includePaths: ['public/bower/bootstrap-sass/assets/stylesheets']
-          }))
+          .pipe(plumber())
           .pipe(sourcemaps.init())
-          .pipe(sass().on('error', sass.logError))
+          .pipe(sass.sync({
+            includePaths: ['public/bower/bootstrap-sass/assets/stylesheets']
+          }).on('error', sass.logError))
           .pipe(concat('app.css'))
           .pipe(sourcemaps.write())
           .pipe(gulp.dest('public/assets/css'));
@@ -27,7 +28,10 @@ gulp.task('serve', function(){
 gulp.task('watch', function(){
   gulp.watch('public/views/*.html').on('change', browserSync.reload);
   gulp.watch('public/assets/css/*.css').on('change', browserSync.reload);
-  gulp.watch('public/assets/scss/*.scss', ['sass']);
+  gulp.watch([
+    'public/assets/scss/courses/*.scss',
+    'public/assets/scss/*.scss'
+  ], ['sass']);
 });
 
 gulp.task('server', function(){
