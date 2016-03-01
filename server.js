@@ -8,7 +8,8 @@ const Data   = require('./data/courses');
 
 server.connection({
   host: 'localhost',
-  port: 8080
+  // host: '0.0.0.0',
+  port: process.env.PORT || 8080
 });
 
 server.ext('onPreResponse', (request, reply) => {
@@ -65,7 +66,7 @@ server.register(require('vision'), (err) => {
     method: 'GET',
     path: '/courses/website-development-101',
     handler: (request, reply) => {
-      reply.view('courses/web_101');
+      reply.view('courses/web_101', { title: 'Website Development 101' });
     }
   });
 

@@ -18,6 +18,15 @@ gulp.task('sass', function(){
           .pipe(gulp.dest('public/assets/css'));
 });
 
+gulp.task('js', function(){
+  return gulp.src([
+            'public/bower/jquery/dist/jquery.min.js',
+            'public/assets/js/src/main.js'
+          ])
+          .pipe(concat('app.js'))
+          .pipe(gulp.dest('public/assets/js'));
+});
+
 gulp.task('serve', function(){
   browserSync.init({
     proxy: 'localhost:8080',
@@ -32,12 +41,13 @@ gulp.task('watch', function(){
     'public/assets/scss/courses/*.scss',
     'public/assets/scss/*.scss'
   ], ['sass']);
+  gulp.watch('public/assets/js/src/*.js', ['js']);
 });
 
 gulp.task('server', function(){
   nodemon({
     script: 'server.js',
-    ext: 'js public/views/partials/*.html'
+    ext: 'server.js public/views/partials/*.html'
   }).on('restart', function(){
     setTimeout(browserSync.reload, 600);
   });

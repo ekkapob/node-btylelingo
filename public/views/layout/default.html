@@ -2,14 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="/assets/images/bytelingo_favicon.png" type="image/png" />
+  <link rel="icon" type="image/png" href="/assets/images/bytelingo_favicon.png"/>
   <link rel="stylesheet" href="/assets/css/app.css"/>
-  <title>Bytelingo | Learn Code</title>
+  <title>
+    {{#if title}}
+      {{title}}
+    {{else}}
+      Bytelingo | Learn Coding
+    {{/if}}
+  </title>
 </head>
 <body>
   <a name="top"></a>
   {{> header}}
   {{{content}}}
   {{> footer}}
+  <script src="/assets/js/app.js"></script>
 </body>
 </html>

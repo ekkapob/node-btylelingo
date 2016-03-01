@@ -17,7 +17,8 @@
   .info {
     position: absolute;
     font-size: 2.2rem;
-    bottom: 4.5rem;
+    // bottom: 4.5rem;
+    top: 31rem; //when no bank info
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -27,6 +28,9 @@
     padding: 3.5rem 4rem 2.5rem;
     border-top: 1px solid $light-grey2;
     text-align: center;
+    @media (max-width: $screen-xs-max) {
+      box-shadow: none;
+    }
     .step {
       &:last-child {
         color: $pink;

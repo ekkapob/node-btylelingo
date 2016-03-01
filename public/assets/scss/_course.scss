@@ -29,6 +29,14 @@
   .courses-container {
     margin: 0;
     background-color: $light-purple;
+    .more-course-coming {
+      font-family: 'quicksandbold';
+      color: $grey;
+      letter-spacing: 0.2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
     .courses {
       margin: 0 1%;
       font-size: 1.5rem;
@@ -39,7 +47,7 @@
         width: 100px;
       }
       .course {
-        margin-bottom: 5rem;
+        margin-bottom: 4rem;
         .badge {
           background-color:white;
           border-radius: 50%;
@@ -71,7 +79,7 @@
         }
         .info {
           color: $content-black;
-          min-height: 13rem;
+          min-height: 15rem;
         }
         .footer {
           color: #505050;
