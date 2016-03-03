@@ -7,7 +7,7 @@ const Hoek      = require('hoek');
 const Data   = require('./data/courses');
 
 server.connection({
-  host: 'localhost',
+  // host: 'localhost',
   // host: '0.0.0.0',
   port: process.env.PORT || 8080
 });
