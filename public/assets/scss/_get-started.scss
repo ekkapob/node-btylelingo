@@ -81,6 +81,11 @@
         img {
           height: 8rem;
         }
+        @media (max-width: $screen-xs-max) {
+          img {
+            height: 5rem;
+          }
+        }
       }
       .bank {
         display: flex;
